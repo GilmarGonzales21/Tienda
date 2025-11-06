@@ -9,5 +9,11 @@ package tienda;
  * @author Gilmar Gonzales
  */
 public class generarComprobante {
-    
+    public void generarComprobante(String Cliente, String producto, double subtotal, double igv, double total){
+        System.out.println("Comprobante para: " + Cliente);
+        System.out.println("Producto: " + producto);
+        System.out.println("Subtotal: " + subtotal);
+        System.out.println("IGV: " + igv);
+        System.out.println("Total: " + total);
+    }
 }
