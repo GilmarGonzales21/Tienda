@@ -1,2 +1,3 @@
-<img width="3278" height="818" alt="diagrama de clases" src="https://github.com/user-attachments/assets/fadd1b01-7ad1-4f0e-a3fa-9b831ee8955b" />
-Diagrama de clases
+
+Diagra<img width="2564" height="774" alt="diagrama de clases" src="https://github.com/user-attachments/assets/b17a68e8-50b9-40a8-b1cc-40d075e03857" />
+ma de clases
