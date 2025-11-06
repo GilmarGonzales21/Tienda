@@ -24,7 +24,7 @@ public class Tienda {
         System.out.println("Ingrese la cantidad que desea: ");
         cantidad = sc.nextInt();
         
-        if (!producto.equalsIgnoreCase("cemento sol") ||!producto.equalsIgnoreCase("cemento apu")||!producto.equalsIgnoreCase("cemento holcim")) {
+        if (!producto.equalsIgnoreCase("cemento sol") &&!producto.equalsIgnoreCase("cemento apu")&&!producto.equalsIgnoreCase("cemento holcim")) {
             System.out.println("No disponible");
         }
         else {
