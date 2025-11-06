@@ -8,6 +8,6 @@ package tienda;
  *
  * @author Gilmar Gonzales
  */
-public class FacturaService {
-    
+interface FacturaService {
+    void generarFactura(String cliente, String producto, double subtotal, double igv, double total);
 }
