@@ -8,11 +8,11 @@ package tienda;
  *
  * @author Gilmar Gonzales
  */
-public class calculoImpuestos {
-    public double calcularSubTotal(String producto, int cantidad){
-        validacionStock validacion = new validacionStock();
-        double precio = validacion.obtenerPrecio(producto);
-        return precio * cantidad;
+public class IGV18Strategy implements ImpuestoStrategy{
+
+    @Override
+    public double calcular(double subtotal) {
+        return subtotal *0.18;
     }
     
 }

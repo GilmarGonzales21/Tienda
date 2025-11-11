@@ -16,10 +16,20 @@ public class Tienda {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String nombre, producto;
-        int cantidad;
+        int cantidad, op;
+        ImpuestoStrategy strategy;
+        System.out.println("Tipo de impuesto: (1) IGV 18%  (2) Exonerado 0%");
+        op = Integer.parseInt(sc.nextLine());
+        if (op == 1) {
+            strategy = new IGV18Strategy();
+        }
+        else {
+            strategy = new ExoneradoStrategy();
+        }
+        
         System.out.println("Ingrese su nombre: ");
         nombre = sc.nextLine();
-        System.out.println("Ingrese el producto (cemento sol, cemento apu, cemento holcim: ");
+        System.out.println("Ingrese el producto (cemento sol, cemento apu, cemento holcim)");
         producto = sc.nextLine();
         System.out.println("Ingrese la cantidad que desea: ");
         cantidad = sc.nextInt();
@@ -28,7 +38,7 @@ public class Tienda {
             System.out.println("No disponible");
         }
         else {
-            PedidoFacade pFacade = new PedidoFacade();
+            PedidoFacade pFacade = new PedidoFacade(strategy);
             pFacade.registrarPedido(nombre, producto, cantidad);
             
             

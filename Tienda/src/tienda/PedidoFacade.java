@@ -15,20 +15,29 @@ public class PedidoFacade {
     private generarComprobante gComprobante;
     private FacturaService fService;
     private PedidoRepository repository;
+    private ImpuestoStrategy impuestoStrateg;
     
-    public PedidoFacade(){
+
+
+    public PedidoFacade(ImpuestoStrategy strategy){
         vStock = new validacionStock();
         cImpuestos = new calculoImpuestos();
         rPedido = new registroPedido();
         gComprobante = new generarComprobante();
         fService = new FacturaAdapter();
         repository = new PedidoRepository();
+        impuestoStrateg = strategy;
+    }
+    
+        public void setImpuestoStrategy(ImpuestoStrategy strategy) {
+        impuestoStrateg = strategy;
     }
     
     public void registrarPedido(String cliente, String producto, int cantidad){
         if (vStock.validarStock(producto, cantidad)) {
             double subtotal = cImpuestos.calcularSubTotal(producto, cantidad);
-            double igv = cImpuestos.calcularIGV(subtotal);
+            
+            double igv = impuestoStrateg.calcular(subtotal);
             double total = subtotal + igv;
             
             Pedido pedido = new Pedido(cliente, producto, cantidad, subtotal, igv, total);
