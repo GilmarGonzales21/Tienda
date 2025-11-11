@@ -8,6 +8,8 @@ package tienda;
  *
  * @author Gilmar Gonzales
  */
+
+//libreria nueva o moderna
 interface FacturaService {
     void generarFactura(String cliente, String producto, double subtotal, double igv, double total);
 }

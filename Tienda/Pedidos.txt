@@ -1,0 +1,3 @@
+Pedido{cliente=Gilmar, producto=cemento sol, cantidad=3, subtotal=90.0, igv=16.2, total=106.2}
+Pedido{cliente=Gilmar, producto=cemento sol, cantidad=3, subtotal=90.0, igv=16.2, total=106.2}
+Pedido{cliente=Gilmar, producto=cemento apu, cantidad=2, subtotal=55.0, igv=9.9, total=64.9}

@@ -14,6 +14,7 @@ public class PedidoFacade {
     private registroPedido rPedido;
     private generarComprobante gComprobante;
     private FacturaService fService;
+    private PedidoRepository repository;
     
     public PedidoFacade(){
         vStock = new validacionStock();
@@ -21,6 +22,7 @@ public class PedidoFacade {
         rPedido = new registroPedido();
         gComprobante = new generarComprobante();
         fService = new FacturaAdapter();
+        repository = new PedidoRepository();
     }
     
     public void registrarPedido(String cliente, String producto, int cantidad){
@@ -29,12 +31,19 @@ public class PedidoFacade {
             double igv = cImpuestos.calcularIGV(subtotal);
             double total = subtotal + igv;
             
+            Pedido pedido = new Pedido(cliente, producto, cantidad, subtotal, igv, total);
+            repository.guardar(pedido);
+            
             rPedido.registrarPedido(cliente, producto, cantidad, subtotal, igv, total);
             gComprobante.generarComprobante(cliente, producto, subtotal, igv, total);
             fService.generarFactura(cliente, producto, subtotal, igv, total);
         } else {
             System.out.println("Stock insuficiente para "+ producto);
         }
+    }
+    
+    public void listarPedido() {
+        repository.listarTodos().forEach(System.out::println);
     }
     
 }

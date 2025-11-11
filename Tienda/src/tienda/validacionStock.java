@@ -12,6 +12,7 @@ public class validacionStock {
     private Producto cementoSol = new Producto("Cemento Sol", 30, 15);
     private Producto cementoApu = new Producto("Cemento Apu", 27.5, 20);
     private Producto cementoHolcim = new Producto("Cemento Holcim", 29, 5);
+
     
     public boolean validarStock(String producto, int cantidad){
         switch (producto.toLowerCase()) {
@@ -21,6 +22,7 @@ public class validacionStock {
                 return cementoApu.validarStock(cantidad);
             case "cemento holcim":
                 return cementoHolcim.validarStock(cantidad);
+
             default:
                 System.out.println("Producto no disponible");
                 return false;
@@ -37,6 +39,7 @@ public class validacionStock {
                 return cementoApu.getPrecio();
             case "cemento holcim":
                 return cementoHolcim.getPrecio();
+
             default:
                 System.out.println("Producto no valido");
                 return 0;

@@ -8,6 +8,8 @@ package tienda;
  *
  * @author Gilmar Gonzales
  */
+
+//libreria externa
 public class LegacyBillingSystem {
     public void emitirFactura(String cliente, String producto,double subtota, double igv, double total){
         System.out.println("----Factura----");

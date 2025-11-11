@@ -30,6 +30,21 @@ public class Tienda {
         else {
             PedidoFacade pFacade = new PedidoFacade();
             pFacade.registrarPedido(nombre, producto, cantidad);
+            
+            
+            System.out.println("¿Desea ver los pedidos guardados? (1. Si || 2. No)");
+            int number = sc.nextInt();
+            switch (number) {
+                case 1:
+                    System.out.println("---Pedidos Guardados---");
+                    pFacade.listarPedido();
+                    break;
+                case 2:
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+
         }
     }
     
