@@ -1,3 +1,3 @@
 
-<img width="3414" height="969" alt="Tienda" src="https://github.com/user-attachments/assets/071097ef-fbf7-4c9f-bc2e-d9274af0c10e" />
+<img width="1781" height="1340" alt="diagrama de clases" src="https://github.com/user-attachments/assets/204cebf0-53f6-41a2-8c07-e0074e0f8eba" />
 Diagrama de clases
