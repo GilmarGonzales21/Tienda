@@ -4,3 +4,6 @@ Pedido{cliente=Gilmar, producto=cemento apu, cantidad=2, subtotal=55.0, igv=9.9,
 Pedido{cliente=Gilmar, producto=cemento sol, cantidad=3, subtotal=90.0, igv=0.0, total=90.0}
 Pedido{cliente=gilmar, producto=cemento sol, cantidad=3, subtotal=90.0, igv=0.0, total=90.0}
 Pedido{cliente=gilmar, producto=cemento holcim, cantidad=4, subtotal=116.0, igv=20.88, total=136.88}
+Pedido{cliente=gilmar, producto=cemento apu, cantidad=1, subtotal=27.5, igv=4.4, total=31.9}
+Pedido{cliente=gilmar, producto=cemento nacional, cantidad=2, subtotal=56.0, igv=10.08, total=66.08}
+Pedido{cliente=gilmar, producto=cemento sol, cantidad=2, subtotal=60.0, igv=0.0, total=60.0}

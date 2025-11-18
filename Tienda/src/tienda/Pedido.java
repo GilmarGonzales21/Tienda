@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tienda;
-
 /**
  *
  * @author Gilmar Gonzales
@@ -24,36 +23,27 @@ public class Pedido {
         this.igv = igv;
         this.total = total;
     }
-
     public String getCliente() {
         return cliente;
     }
-
     public String getProducto() {
         return producto;
     }
-
     public int getCantidad() {
         return cantidad;
     }
-
     public double getSubtotal() {
         return subtotal;
     }
-
     public double getIgv() {
         return igv;
     }
-
     public double getTotal() {
         return total;
     }
-
     @Override
     public String toString() {
         return "Pedido{" + "cliente=" + cliente + ", producto=" + producto + ", cantidad=" + cantidad + ", subtotal=" + subtotal + ", igv=" + igv + ", total=" + total + '}';
     }
-    
-    
     
 }

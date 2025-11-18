@@ -3,27 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package tienda;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 /**
  *
  * @author Gilmar Gonzales
  */
 public class PedidoRepository {
-
     private final List<Pedido> pedidos = new ArrayList<>();
     private final String archivoPedidos = "Pedidos.txt";
-
     public void guardar(Pedido pedido) {
         pedidos.add(pedido);
         guardarEnArchivo(pedido);
         System.out.println("Pedido guardado: " + pedido);
     }
-
     private void guardarEnArchivo(Pedido pedido) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoPedidos, true))) {
             writer.write(pedido.toString());
@@ -33,7 +28,6 @@ public class PedidoRepository {
             e.printStackTrace();
         }
     }
-
     private void cargarDesdeArchivo() {
         try (BufferedReader reader = new BufferedReader(new FileReader(archivoPedidos))) {
             String line;
@@ -54,10 +48,8 @@ public class PedidoRepository {
             e.printStackTrace();
         }
     }
-
     public List<Pedido> listarTodos() {
         cargarDesdeArchivo();
         return Collections.unmodifiableList(pedidos);
     }
-
 }
