@@ -39,6 +39,12 @@ public class Tienda {
         }
         else {
             PedidoFacade pFacade = new PedidoFacade(strategy);
+            
+            pFacade.agregarObserver(new ClienteObserver());
+            pFacade.agregarObserver(new InventarioObserver());
+            pFacade.agregarObserver(new LogObserver());
+
+            
             pFacade.registrarPedido(nombre, producto, cantidad);
             
             

@@ -10,7 +10,8 @@ import java.util.List;
 /**
  *
  * @author Gilmar Gonzales
- */
+ */ 
+//subject
 public class PedidoFacade {
     private validacionStock vStock;
     private calculoImpuestos cImpuestos;
@@ -43,11 +44,21 @@ public class PedidoFacade {
             double total = subtotal + igv;
             
             Pedido pedido = new Pedido(cliente, producto, cantidad, subtotal, igv, total);
+            
+            // HILO 1: procesar/guardar pedido
+            HiloProcesarPedido hilo1 = new HiloProcesarPedido(repository, rPedido, pedido);
+            hilo1.run();
+
+            // HILO 2: generar comprobante y factura
+            HiloGenerarFactura hilo2 = new HiloGenerarFactura(gComprobante, fService, pedido);
+            hilo2.start();
+
+            // HILO 3: notificar observadores (cliente, inventario, log)
+            HiloNotificaciones hilo3 = new HiloNotificaciones(this, pedido);
+            hilo3.start();
             repository.guardar(pedido);
             
-            rPedido.registrarPedido(cliente, producto, cantidad, subtotal, igv, total);
-            gComprobante.generarComprobante(cliente, producto, subtotal, igv, total);
-            fService.generarFactura(cliente, producto, subtotal, igv, total);
+           
         } else {
             System.out.println("Stock insuficiente para "+ producto);
         }
@@ -61,7 +72,7 @@ public class PedidoFacade {
         observers.add(o);
     }
     
-    private void notificar(Pedido pedido){
+    void notificar(Pedido pedido){
         for(PedidoObserver o : observers){
             o.actualizar(pedido);
         }

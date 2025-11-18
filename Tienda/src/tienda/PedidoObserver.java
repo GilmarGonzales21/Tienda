@@ -8,6 +8,6 @@ package tienda;
  *
  * @author Gilmar Gonzales
  */
-public interface PedidoObserver {
+public interface PedidoObserver { //interface
     void actualizar(Pedido pedido);
 }
