@@ -4,6 +4,9 @@
  */
 package tienda;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Gilmar Gonzales
@@ -16,8 +19,7 @@ public class PedidoFacade {
     private FacturaService fService;
     private PedidoRepository repository;
     private ImpuestoStrategy impuestoStrateg;
-    
-
+    private List<PedidoObserver> observers = new ArrayList<>();
 
     public PedidoFacade(ImpuestoStrategy strategy){
         vStock = new validacionStock();
@@ -53,6 +55,16 @@ public class PedidoFacade {
     
     public void listarPedido() {
         repository.listarTodos().forEach(System.out::println);
+    }
+    
+    public void agregarObserver(PedidoObserver o){
+        observers.add(o);
+    }
+    
+    private void notificar(Pedido pedido){
+        for(PedidoObserver o : observers){
+            o.actualizar(pedido);
+        }
     }
     
 }
